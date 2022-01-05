@@ -12,6 +12,8 @@ function addTask(e)
     removeButton.addEventListener('click', (e) => listItem.parentElement.removeChild(listItem));
     listItem.appendChild(removeButton);
     document.querySelector('#items').appendChild(listItem);
+    // clear the textbox after the task is added for convenience
+    document.querySelector('#new-task').value = "";
 }
 
 function clearList(e)
