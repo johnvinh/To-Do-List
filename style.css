@@ -1,0 +1,19 @@
+* {
+    font-family: Verdana, sans-serif;
+}
+
+#content {
+    margin: auto;
+    width: 30%;
+}
+
+label {
+    margin-right: 1em;
+}
+
+input[type=button] {
+    background-color: #6C0E23;
+    border: 0;
+    color: #fff;
+    padding: 1em 1em;
+}
