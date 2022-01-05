@@ -23,3 +23,8 @@ label {
     border: 0;
     color: #fff;
 }
+
+#content header {
+    margin: auto;
+    width: 50%;
+}
