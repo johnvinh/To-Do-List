@@ -11,9 +11,15 @@ label {
     margin-right: 1em;
 }
 
-input[type=button] {
+#add-task {
     background-color: #6C0E23;
     border: 0;
     color: #fff;
     padding: 1em 1em;
+}
+
+.remove {
+    background-color: #6C0E23;
+    border: 0;
+    color: #fff;
 }
