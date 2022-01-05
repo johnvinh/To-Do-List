@@ -14,4 +14,13 @@ function addTask(e)
     document.querySelector('#items').appendChild(listItem);
 }
 
+function clearList(e)
+{
+    const listItems = document.querySelectorAll('li');
+    for (let i = 0; i < listItems.length; i++) {
+        listItems[i].parentElement.removeChild(listItems[i]);
+    }
+}
+
 document.querySelector('#add-task').addEventListener('click', addTask);
+document.querySelector('#clear-list').addEventListener('click', clearList);

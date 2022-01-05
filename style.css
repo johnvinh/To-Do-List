@@ -11,7 +11,7 @@ label {
     margin-right: 1em;
 }
 
-#add-task {
+#add-task, #clear-list {
     background-color: #6C0E23;
     border: 0;
     color: #fff;
