@@ -18,10 +18,14 @@ label {
     padding: 1em 1em;
 }
 
-.remove {
+.listbutton {
     background-color: #6C0E23;
     border: 0;
     color: #fff;
+}
+
+.completed {
+    text-decoration: line-through;
 }
 
 #content header {
