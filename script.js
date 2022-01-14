@@ -26,7 +26,6 @@ function createListItem(taskName)
     {
         listItem.parentElement.removeChild(listItem);
         const tasks = JSON.parse(localStorage.getItem('tasks'));
-        console.log(typeof tasks);
         const newTasks = tasks.filter((task) => task !== taskText);
         localStorage.setItem('tasks', JSON.stringify(newTasks));
     });
@@ -50,8 +49,10 @@ function createListItem(taskName)
 
 function addTask(e)
 {
-    const taskText = document.querySelector('#new-task').value
+    const taskText = document.querySelector('#new-task').value;
+    // Add elements to DOM
     createListItem(taskText);
+    // Update local storage
     const tasks = JSON.parse(localStorage.getItem('tasks')) ?? [];
     tasks.push(taskText);
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -59,6 +60,7 @@ function addTask(e)
 
 function clearList(e)
 {
+    // Remove elements from DOM
     const listItems = document.querySelectorAll('li');
     for (let i = 0; i < listItems.length; i++) {
         listItems[i].parentElement.removeChild(listItems[i]);
