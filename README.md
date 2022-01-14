@@ -1,1 +1,1 @@
-A simple to-do list with JavaScript.
+A simple to-do list created with vanilla JavaScript.
