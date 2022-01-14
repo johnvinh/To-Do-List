@@ -1,7 +1,17 @@
-function addTask(e)
+(() =>
 {
+    // Load items from local storage
+    const tasks = JSON.parse(localStorage.getItem('tasks')) ?? [];
+    for (let i = 0; i < tasks.length; i++) {
+        createListItem(tasks[i]);
+    }
+})();
+
+function createListItem(taskName)
+{
+    const taskText = taskName;
     const task = document.createElement('span');
-    task.innerHTML = document.querySelector('#new-task').value;
+    task.innerHTML = taskText;
 
     // Task content
     const listItem = document.createElement('li');
@@ -12,7 +22,14 @@ function addTask(e)
     removeButton.setAttribute('type', 'button');
     removeButton.setAttribute('value', 'Remove');
     removeButton.setAttribute('class', 'listbutton');
-    removeButton.addEventListener('click', (e) => listItem.parentElement.removeChild(listItem));
+    removeButton.addEventListener('click', (e) =>
+    {
+        listItem.parentElement.removeChild(listItem);
+        const tasks = JSON.parse(localStorage.getItem('tasks'));
+        console.log(typeof tasks);
+        const newTasks = tasks.filter((task) => task !== taskText);
+        localStorage.setItem('tasks', JSON.stringify(newTasks));
+    });
     listItem.appendChild(removeButton);
 
     // Mark as completed button
@@ -31,12 +48,23 @@ function addTask(e)
     document.querySelector('#new-task').value = "";
 }
 
+function addTask(e)
+{
+    const taskText = document.querySelector('#new-task').value
+    createListItem(taskText);
+    const tasks = JSON.parse(localStorage.getItem('tasks')) ?? [];
+    tasks.push(taskText);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
 function clearList(e)
 {
     const listItems = document.querySelectorAll('li');
     for (let i = 0; i < listItems.length; i++) {
         listItems[i].parentElement.removeChild(listItems[i]);
     }
+    // Clear localstorage
+    localStorage.setItem('tasks', JSON.stringify([]));
 }
 
 document.querySelector('#add-task').addEventListener('click', addTask);
